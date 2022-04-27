@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<body ng-app="MyApp">
+    <div ng-controller="teacherControler">
+
+        <table class=" table table-bordered">
+            <tr>
+                <th>FullName</th>
+                <th>BirthDay</th>
+                <th>Salary</th>
+            </tr>
+            <tr ng-repeat="t in teachers">
+                <td>{{t.FullName}}</td>
+                <td>{{t.BirthdayDate}}</td>
+                <td>{{t.Salary}}</td>
+                <td><a href="/Teacher/Edit?id={{t.Id}}"><i></i></a></td>
+                <td><a href="/Teacher/Delete?id={{t.Id}}"><i></i></a></td>
+            </tr>
+           
+        </table>
+        
+    </div>
+    
+</body>
+
