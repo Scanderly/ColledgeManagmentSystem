@@ -12,7 +12,7 @@ namespace ColledgeManageSystem.Controllers
     public class TeacherController : Controller
     {
         private readonly IGenericRepository<Teacher> _repo;
-        private readonly ColledgeContext _context;
+        //private readonly ColledgeContext _context;
         public TeacherController()
         {
             _repo = new GenericRepository<Teacher>();
@@ -23,6 +23,17 @@ namespace ColledgeManageSystem.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        public ActionResult Create()
+        {
+            
+            return View();
+        }
+        [HttpPost]
+        public JsonResult Create(Teacher teacher)
+        {
+            _repo.CreateItem(teacher);
+            return Json(teacher, JsonRequestBehavior.AllowGet);
         }
         public JsonResult GetList()
         {
@@ -42,6 +53,12 @@ namespace ColledgeManageSystem.Controllers
         {
             _repo.Update(teacher);
             string res = "Updated";
+            return Json(res, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult Delete(int? id)
+        {
+            _repo.Delete(id);
+            string res = "Deleted";
             return Json(res, JsonRequestBehavior.AllowGet);
         }
     }

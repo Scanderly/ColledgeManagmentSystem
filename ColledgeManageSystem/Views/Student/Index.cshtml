@@ -1,0 +1,56 @@
+﻿
+
+<h2>Students</h2>
+<body ng-app="MyApp">
+    <div ng-controller="teacherController">
+        <table class="table table-bordered">
+            <tr>
+                <td>FullName</td>
+                <td>BirthDayDate</td>
+                <td>RegNumber</td>
+            </tr>
+            <tr dir-paginate="s in students|itemsPerPage:4">
+                <td>{{s.FullName}}</td>
+                <td>{{s.BirthdayDate.replace('/Date(','').replace(')/','')|date:'dd.MM.yyyy'}}</td>
+                <td>{{s.RegNumber}}</td>
+                <td><a ng-click="GetStudent(t.Id)" href="#" }}"><i class="fa fa-pencil"></i></a></td>
+                <td><a ng-click="DeleteStudent(t.Id)" href="#"><i class="fa fa-trash"></i></a></td>
+            </tr>
+
+        </table>
+        <dir-pagination-controls max-size="3"
+                                 direction-links="true"
+                                 boundary-links="true">
+        </dir-pagination-controls>
+        <span style="color:red; font-size:20px">{{Msg}}</span>
+
+        <table class="table table-bordered">
+            <tr>
+                <td>FullName</td>
+                <td><input type="text" value=" " ng-model="student.FullName" /></td>
+            </tr>
+            <tr>
+                <td>BirthDayDate</td>
+                <td>
+                    <span ng-hide="true"></span>{{student.BirthdayDate=(student.BirthdayDate.replace('/Date(','').replace(')/','')|date:'dd.MM.yyyy')}}
+
+                    <input type="text" value=" " ng-model="student.BirthdayDate" />
+                </td>
+            </tr>
+            <tr>
+                <td>RegNumber</td>
+                <td><input type="text" value=" " ng-model="student.RegNumber" /></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Create" ng-click="CreateStudent(student)" class="btn btn-success" /></td>
+                <td><input type="button" value="Edit" ng-model="EditStudent(student.Id)" class="btn btn-info" /></td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/Scripts/AngularControllers/TeacherController.js"></script>
+<script src="~/Scripts/dirPagination.js"></script>
+
+

@@ -1,29 +1,62 @@
-﻿var app = angular.module('MyApp', [])
-app.factory('teacherCrudservice', function ($http) {
-    teacherObj = {};
-    teacherObj.getAll = function () {
-        var teachers;
-        teachers = $http({ method: 'Get', url: '/Teacher/getlist' }).then(function (response) {
-            return response.data;
-        });
-        return teachers;
-    }
-    teacherObj.getById = function () {
-        var teacher;
-        teacher = $http({method:'Get',url:'/Teacher/'})
-    }
-    return teacherObj;
-});
-app.controller('teacherControler', function ($scope, teacherCrudservice ) {
+﻿var app = angular.module('MyApp', ['angularUtils.directives.dirPagination']);
 
-    teacherCrudservice.getAll().then(function (result) {
-        $scope.teachers = result;
+app.controller('teacherController', function ($scope, $http) {
+    $http.get('/Teacher/GetList').then(function (response) {
+        $scope.teachers = response.data;
     });
-    
-    $scope.GetTeacher = function (id) {
-        $http.get('/Teacher/GetTeacherById?id='+id).then(function (response) {
+    $scope.GetTeacher = function (tid) {
+        $http({ method: 'Get', url: '/Teacher/GetTeacherById', params: { id: tid } }).then(function (response) {
             $scope.teacher = response.data;
         });
     }
-    
+    $scope.EditTeacher = function (teacher) {
+        $http({ method: 'POST', url: '/Teacher/Update', data: teacher })
+        .success()
+    }
+    $scope.DeleteTeacher = function (tid) {
+        $http({ method: 'POST', url: '/Teacher/Delete', params: { id: tid } })
+            .then(function (response) {
+                $scope.Msg ="Removed succesfully";
+            })
+    }
+    $scope.CreateTeacher = function (teacher) {
+        $http({ method: 'POST', url: '/Teacher/Create', data: teacher })
+            .then(function (response) {
+                $scope.Msg = response.FullName + "Created succesfully";
+            })
+    }
+
 })
+//app.factory('teacherCrudservice', function ($http) {
+//    teacherObj = {};
+
+//    teacherObj.getAll = function () {
+//        var teachers;
+//        teachers = $http({ method: 'Get', url: '/Teacher/GetList' }).then(function (response) {
+//            return response.data;
+//        });
+//        return teachers;
+//    }
+
+//    teacherObj.getById = function (tid) {
+//        var teacher;
+//        teacher = $http({ method: 'Get', url: '/Teacher/GetTeacherById', params: { id=tid } })
+//            .then(function (result) {
+//                return result.data;
+//            });
+//        return teacher;
+//    }
+//    return teacherObj;
+//});
+//app.controller('teacherController', function ($scope, teacherCrudservice) {
+
+//    teacherCrudservice.getAll().then(function (result) {
+//        $scope.teachers = result;
+//    });
+
+//    teacherCrudservice.getById().then(function (response) {
+//        $scope.teacher = response;
+//    })
+
+
+//})

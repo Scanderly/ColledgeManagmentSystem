@@ -1,29 +1,56 @@
 ﻿
-@{
-    ViewBag.Title = "Index";
-}
 
-<h2>Index</h2>
+<h2>Teachers</h2>
 <body ng-app="MyApp">
-    <div ng-controller="teacherControler">
-
-        <table class=" table table-bordered">
+    <div ng-controller="teacherController">
+        @*<input type="button" value="ClickMe" ng-click="GetTeachers()" />
+            {{teachers}}*@
+        <table class="table table-bordered">
             <tr>
-                <th>FullName</th>
-                <th>BirthDay</th>
-                <th>Salary</th>
+                <td>FullName</td>
+                <td>BirthDayDate</td>
+                <td>Salary</td>
             </tr>
-            <tr ng-repeat="t in teachers">
+            <tr dir-paginate="t in teachers|itemsPerPage:4">
                 <td>{{t.FullName}}</td>
-                <td>{{t.BirthdayDate}}</td>
+                <td>{{t.BirthdayDate.replace('/Date(','').replace(')/','')|date:'dd.MM.yyyy'}}</td>
                 <td>{{t.Salary}}</td>
-                <td><a href="/Teacher/Edit?id={{t.Id}}"><i></i></a></td>
-                <td><a href="/Teacher/Delete?id={{t.Id}}"><i></i></a></td>
+                <td><a ng-click="GetTeacher(t.Id)" href="#" }}"><i class="fa fa-pencil"></i></a></td>
+                <td><a ng-click="DeleteTeacher(t.Id)" href="#"><i class="fa fa-trash"></i></a></td>
             </tr>
-           
+
         </table>
-        
+        <dir-pagination-controls max-size="3"
+                                 direction-links="true"
+                                 boundary-links="true">
+        </dir-pagination-controls>
+        <span style="color:red; font-size:20px">{{Msg}}</span>
+
+        <table class="table table-bordered">
+            <tr>
+                <td>FullName</td>
+                <td><input type="text" value=" " ng-model="teacher.FullName" /></td>
+            </tr>
+            <tr>
+                <td>BirthDayDate</td>
+                <td>
+                    <span ng-hide="true"></span>{{teacher.BirthdayDate=(teacher.BirthdayDate.replace('/Date(','').replace(')/','')|date:'dd.MM.yyyy')}}
+                    <input type="text" value=" " ng-model="teacher.BirthdayDate" />
+                </td>
+            </tr>
+            <tr>
+                <td>Salary</td>
+                <td><input type="text" value=" " ng-model="teacher.Salary" /></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Create" ng-click="CreateTeacher(teacher)" class="btn btn-success" /></td>
+                <td><input type="button" value="Edit" ng-model="EditTeacher(teacher.Id)"  class="btn btn-info"/></td>
+            </tr>
+        </table>
     </div>
-    
 </body>
+
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/Scripts/AngularControllers/StudentController.js"></script>
+<script src="~/Scripts/dirPagination.js"></script>
 

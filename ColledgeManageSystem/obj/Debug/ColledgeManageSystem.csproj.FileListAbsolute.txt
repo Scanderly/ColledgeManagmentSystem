@@ -76,8 +76,8 @@ C:\Users\ASUS\source\repos\ColledgeManageSystem\ColledgeManageSystem\bin\System.
 C:\Users\ASUS\source\repos\ColledgeManageSystem\ColledgeManageSystem\bin\Newtonsoft.Json.xml
 C:\Users\ASUS\source\repos\ColledgeManageSystem\ColledgeManageSystem\bin\Antlr3.Runtime.pdb
 C:\Users\ASUS\source\repos\ColledgeManageSystem\ColledgeManageSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\ASUS\source\repos\ColledgeManageSystem\ColledgeManageSystem\obj\Debug\ColledgeManageSystem.csprojAssemblyReference.cache
 C:\Users\ASUS\source\repos\ColledgeManageSystem\ColledgeManageSystem\obj\Debug\ColledgeManageSystem.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\source\repos\ColledgeManageSystem\ColledgeManageSystem\obj\Debug\ColledgeManageSystem.csproj.CopyComplete
 C:\Users\ASUS\source\repos\ColledgeManageSystem\ColledgeManageSystem\obj\Debug\ColledgeManageSystem.dll
 C:\Users\ASUS\source\repos\ColledgeManageSystem\ColledgeManageSystem\obj\Debug\ColledgeManageSystem.pdb
+C:\Users\ASUS\source\repos\ColledgeManageSystem\ColledgeManageSystem\obj\Debug\ColledgeManageSystem.csprojAssemblyReference.cache
