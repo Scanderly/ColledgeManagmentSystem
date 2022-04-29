@@ -4,4 +4,51 @@
 }
 
 <h2>Edit</h2>
+<body ng-app="MyApp">
+    <div ng-controller="teacherController">
+        <table class="table table-bordered">
+            <tr>
+                <td>FullName</td>
+                <td><input type="text" value=" " ng-model="teacher.FullName" /></td>
+            </tr>
+            <tr>
+                <td>BirthDayDate</td>
+                <td>
+                    @*<span ng-hide="true"></span>{{teacher.BirthdayDate=(teacher.BirthdayDate.replace('/Date(','').replace(')/','')|date:'dd.MM.yyyy')}}*@
+
+                    <input type="date" class="datetimefield" value=" " ng-model="teacher.BirthdayDate" />
+                </td>
+            </tr>
+            <tr>
+                <td>Salary</td>
+                <td><input type="text" value=" " ng-model="teacher.Salary" /></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Create" ng-click="CreateTeacher(teacher)" class="btn btn-success" /></td>
+                <td><input type="button" value="Edit" ng-model="EditTeacher(teacher.Id)" class="btn btn-info" /></td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/Scripts/AngularControllers/TeacherController.js"></script>
+<script src="~/Scripts/dirPagination.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/js/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://npmcdn.com/flatpickr@4.6.6/dist/l10n/en.js"></script>
+
+<script>
+    var d = new Date($.now());
+    window.addEventListener("DOMContentLoaded", function () {
+        flatpickr(".datetimefield", {
+            enableTime: false,
+            enableSeconds: false,
+            dateFormat: "Y-m-d",
+            time_24hr: true,
+            locale: "en",
+            defaultDate: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
+        })
+    });</script>
 

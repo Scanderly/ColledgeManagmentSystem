@@ -1,28 +1,39 @@
 ﻿var app = angular.module('MyApp', ['angularUtils.directives.dirPagination']);
 
 app.controller('teacherController', function ($scope, $http) {
+    //GEt all Teachers
     $http.get('/Teacher/GetList').then(function (response) {
         $scope.teachers = response.data;
     });
+    //Get Teacher by Id
     $scope.GetTeacher = function (tid) {
         $http({ method: 'Get', url: '/Teacher/GetTeacherById', params: { id: tid } }).then(function (response) {
             $scope.teacher = response.data;
         });
     }
+    //Update teacher
     $scope.EditTeacher = function (teacher) {
         $http({ method: 'POST', url: '/Teacher/Update', data: teacher })
-        .success()
+            .then(function (response) {
+                $scope.Msg = response.FullName + " " + "Updated succesfully";
+
+                $http.get('/Teacher/GetList').then(function (response) {
+                    $scope.teachers = response.data;
+                });
+            })
     }
+    //Delete teacher
     $scope.DeleteTeacher = function (tid) {
         $http({ method: 'POST', url: '/Teacher/Delete', params: { id: tid } })
             .then(function (response) {
                 $scope.Msg ="Removed succesfully";
             })
     }
+    //Create teacher
     $scope.CreateTeacher = function (teacher) {
         $http({ method: 'POST', url: '/Teacher/Create', data: teacher })
             .then(function (response) {
-                $scope.Msg = response.FullName + "Created succesfully";
+                $scope.Msg = response.FullName +" "+ "Created succesfully";
             })
     }
 

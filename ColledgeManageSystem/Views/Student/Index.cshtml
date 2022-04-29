@@ -32,8 +32,9 @@
             <tr>
                 <td>BirthDayDate</td>
                 <td>
-                    <span ng-hide="true"></span>{{student.BirthdayDate=(student.BirthdayDate.replace('/Date(','').replace(')/','')|date:'dd.MM.yyyy')}}
-
+                    <span ng-hide="true">
+                        {{student.BirthdayDate=(student.BirthdayDate.replace('/Date(','').replace(')/','') |date:'MM/dd/yyyy')}}
+                    </span>
                     <input type="text" value=" " ng-model="student.BirthdayDate" />
                 </td>
             </tr>
@@ -50,7 +51,7 @@
 </body>
 
 <script src="~/Scripts/angular.min.js"></script>
-<script src="~/Scripts/AngularControllers/TeacherController.js"></script>
+<script src="~/Scripts/AngularControllers/StudentController.js"></script>
 <script src="~/Scripts/dirPagination.js"></script>
 
 

@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@model IEnumerable<ColledgeManageSystem.Models.Grade>
+<h2>Grades</h2>
+
+<body>
+    <div>
+        <table class="table table-bordered">
+            <tr>
+                <td>Student</td>
+                <td>Subject</td>
+                <td>StudentGrade</td>
+            </tr>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.Student.FullName</td>
+                <td>@item.Subject.Name</td>
+                <td>@item.StudentGrade</td>
+            </tr>
+            }
+
+        </table>
+       
+    </div>
+</body>
+
+

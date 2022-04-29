@@ -80,4 +80,3 @@ C:\Users\ASUS\source\repos\ColledgeManageSystem\ColledgeManageSystem\obj\Debug\C
 C:\Users\ASUS\source\repos\ColledgeManageSystem\ColledgeManageSystem\obj\Debug\ColledgeManageSystem.csproj.CopyComplete
 C:\Users\ASUS\source\repos\ColledgeManageSystem\ColledgeManageSystem\obj\Debug\ColledgeManageSystem.dll
 C:\Users\ASUS\source\repos\ColledgeManageSystem\ColledgeManageSystem\obj\Debug\ColledgeManageSystem.pdb
-C:\Users\ASUS\source\repos\ColledgeManageSystem\ColledgeManageSystem\obj\Debug\ColledgeManageSystem.csprojAssemblyReference.cache

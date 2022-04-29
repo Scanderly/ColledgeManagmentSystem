@@ -15,7 +15,8 @@
                 <td>{{t.FullName}}</td>
                 <td>{{t.BirthdayDate.replace('/Date(','').replace(')/','')|date:'dd.MM.yyyy'}}</td>
                 <td>{{t.Salary}}</td>
-                <td><a ng-click="GetTeacher(t.Id)" href="#" }}"><i class="fa fa-pencil"></i></a></td>
+                @*<td><a href="/Teacher/Edit?id={{t.ID}}"><i class="fa fa-pencil"></i></a></td>*@
+                <td><a ng-click="EditTeacher(t.Id)" href="#"><i class="fa fa-pencil"></i></a></td>
                 <td><a ng-click="DeleteTeacher(t.Id)" href="#"><i class="fa fa-trash"></i></a></td>
             </tr>
 
@@ -34,7 +35,7 @@
             <tr>
                 <td>BirthDayDate</td>
                 <td>
-                    <span ng-hide="true"></span>{{teacher.BirthdayDate=(teacher.BirthdayDate.replace('/Date(','').replace(')/','')|date:'dd.MM.yyyy')}}
+                    <span ng-hide="true">{{teacher.BirthdayDate=(teacher.BirthdayDate.replace('/Date(','').replace(')/','')|date:'MM/dd/yyyy')}}</span>
                     <input type="text" value=" " ng-model="teacher.BirthdayDate" />
                 </td>
             </tr>
@@ -51,6 +52,6 @@
 </body>
 
 <script src="~/Scripts/angular.min.js"></script>
-<script src="~/Scripts/AngularControllers/StudentController.js"></script>
+<script src="~/Scripts/AngularControllers/TeacherController.js"></script>
 <script src="~/Scripts/dirPagination.js"></script>
 

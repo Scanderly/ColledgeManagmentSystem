@@ -1,4 +1,5 @@
 ﻿using ColledgeManageSystem.Models;
+using ColledgeManageSystem.SeedData;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -11,7 +12,7 @@ namespace ColledgeManageSystem.DAL
     {
         public ColledgeContext() : base("DefaultConnection")
         {
-
+            
         }
 
         public DbSet<Course> Courses { get; set; }

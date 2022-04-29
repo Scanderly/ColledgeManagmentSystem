@@ -1,5 +1,4 @@
-﻿using ColledgeManageSystem.DAL;
-using ColledgeManageSystem.Models;
+﻿using ColledgeManageSystem.Models;
 using ColledgeManageSystem.Services;
 using System;
 using System.Collections.Generic;
@@ -9,50 +8,51 @@ using System.Web.Mvc;
 
 namespace ColledgeManageSystem.Controllers
 {
-    public class TeacherController : Controller
+    public class CourseController : Controller
     {
-        private readonly IGenericRepository<Teacher> _repo;
+        private readonly IGenericRepository<Course> _repo;
         //private readonly ColledgeContext _context;
-        public TeacherController()
+        public CourseController()
         {
-            _repo = new GenericRepository<Teacher>();
-           
+            _repo = new GenericRepository<Course>();
+
         }
 
-        // GET: Teacher
+        // GET: Course
         public ActionResult Index()
         {
             return View();
         }
         public ActionResult Create()
         {
-            
+
             return View();
         }
         [HttpPost]
-        public JsonResult Create(Teacher teacher)
+        public JsonResult Create(Course course)
         {
-            _repo.CreateItem(teacher);
-            return Json(teacher, JsonRequestBehavior.AllowGet);
+            
+            _repo.CreateItem(course);
+            return Json(course, JsonRequestBehavior.AllowGet);
         }
         public JsonResult GetList()
         {
-            var teachers = _repo.GetAllEntities();
-            return Json(teachers,JsonRequestBehavior.AllowGet);
+            var courses = _repo.GetAllEntities();
+            return Json(courses, JsonRequestBehavior.AllowGet);
         }
-        public JsonResult GetTeacherById(int? id)
+        public JsonResult GetCourseById(int? id)
         {
-            var teacher = _repo.GetItemById(id);
-            return Json(teacher, JsonRequestBehavior.AllowGet);
+            var course = _repo.GetItemById(id);
+            return Json(course, JsonRequestBehavior.AllowGet);
         }
         public ActionResult Edit(int? id)
         {
-            var teacher = _repo.GetItemById(id);
-            return View();
+            var course = _repo.GetItemById(id);
+            return View(course);
         }
-        public JsonResult Update(Teacher teacher)
+        public JsonResult Update(Course course)
         {
-            _repo.Update(teacher);
+            _repo.Update(course);
             string res = "Updated";
             return Json(res, JsonRequestBehavior.AllowGet);
         }

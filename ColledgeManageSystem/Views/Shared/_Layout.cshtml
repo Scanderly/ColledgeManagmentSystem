@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Colledge Managment System</title>
     @Styles.Render("~/Content/css")
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     @Scripts.Render("~/bundles/modernizr")
@@ -17,7 +17,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Colledge Managment System", "Index", "Teacher", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Colledge Managment System", "Index", "Grade", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -34,7 +34,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Colledge Managment System</p>
         </footer>
     </div>
 </body>

@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<h2>Courses</h2>
+<body ng-app="MyApp">
+    <div ng-controller="courseController">
+        <table class="table table-bordered">
+            <tr>
+                <td>Name</td>
+            </tr>
+            <tr dir-paginate="c in courses|itemsPerPage:4">
+                <td>{{c.Name}}</td>
+                <td><a ng-click="GetCourse(c.Id)" href="#"><i class="fa fa-pencil"></i></a></td>
+                <td><a ng-click="DeleteCourse(c.Id)" href="#"><i class="fa fa-trash"></i></a></td>
+            </tr>
+
+        </table>
+        <dir-pagination-controls max-size="3"
+                                 direction-links="true"
+                                 boundary-links="true">
+        </dir-pagination-controls>
+        <span style="color:red; font-size:20px">{{Msg}}</span>
+
+        <table class="table table-bordered">
+            <tr>
+                <td>Name</td>
+                <td><input type="text" value=" " ng-model="course.Name" /></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Create" ng-click="CreateCourse(course)" class="btn btn-success" /></td>
+                <td><input type="button" value="Edit" ng-model="EditCourse(course.Id)" class="btn btn-info" /></td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/Scripts/AngularControllers/CourseController.js"></script>
+<script src="~/Scripts/dirPagination.js"></script>
+
+
+
+
